@@ -5,7 +5,9 @@
   overflow: hidden;
   white-space: nowrap;
 }
-
+.main-menu-container {
+  background-color: yellow;
+}
 .announcement-text {
   display: inline-block;
   padding: 10px 0;

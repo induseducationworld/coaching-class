@@ -1,0 +1,108 @@
+.faq-section {
+  padding: 60px 0;
+  background-color: #f9f9f9;
+}
+
+.section-title h2 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.section-title .subtitle {
+  font-size: 18px;
+  color: #555;
+}
+
+.faq-tab .product-tab {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.faq-tab .product-tab li {
+  margin: 0 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.faq-tab .product-tab li.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.faq-tab .product-tab li:not(.active):hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.panel-group {
+  margin-top: 30px;
+}
+
+.panel {
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.panel-title {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+}
+
+.panel-title h3 {
+  margin: 0;
+}
+
+.panel-title button {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.panel-body {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+}
+
+.collapse {
+  display: none;
+}
+
+.collapse.show {
+  display: block;
+}
+
+.about-btn .genius-btn {
+  display: inline-block;
+  margin: 10px 5px;
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.about-btn .genius-btn:hover {
+  background: linear-gradient(45deg, #0056b3, #007bff);
+}
+
+@media (max-width: 768px) {
+  .faq-tab .product-tab {
+    flex-direction: column;
+  }
+
+  .faq-tab .product-tab li {
+    margin-bottom: 10px;
+  }
+}

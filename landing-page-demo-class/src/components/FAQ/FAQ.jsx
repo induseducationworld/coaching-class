@@ -1,88 +1,428 @@
-import React, { useState } from "react";
-import { Accordion, Card, Button } from "react-bootstrap";
-import { BsFillCaretRightFill } from "react-icons/bs";
-
-const faqData = [
-  {
-    question: "How to Register or Make An Account in Genius?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam volutpat.",
-  },
-  {
-    question: "What is Genius Courses?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam volutpat.",
-  },
-  {
-    question: "What Lorem Ipsum Dolor Sit Amet Consectuerer?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam volutpat.",
-  },
-  {
-    question: "Adipiscing Diamet Nonnumy Nibh Euismod?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam volutpat.",
-  },
-];
+import React from "react";
 
 const FAQ = () => {
-  const [activeTab, setActiveTab] = useState(0);
-
-  const handleTabClick = (index) => {
-    setActiveTab(index === activeTab ? -1 : index);
-  };
-
   return (
-    <>
-      <section
-        id="faq"
-        className="faq-section faq-secound-home-version backgroud-style"
-      >
-        <div className="container">
-          <div className="section-title mb45 headline text-center">
-            <span className="subtitle text-uppercase">GENIUS COURSE FAQ</span>
-            <h2>
-              Frequently<span> Asked Questions</span>
-            </h2>
-          </div>
+    <section
+      id="faq"
+      className="faq-section faq-secound-home-version backgroud-style"
+    >
+      <div className="container">
+        <div className="section-title mb45 headline text-center">
+          <span className="subtitle text-uppercase">GENIUS COURSE FAQ</span>
+          <h2>
+            Frequently<span> Ask & Questions</span>
+          </h2>
+        </div>
 
-          <Accordion defaultActiveKey="0">
-            {faqData.map((item, index) => (
-              <Card key={index}>
-                <Accordion.Toggle
-                  as={Card.Header}
-                  eventKey={index.toString()}
-                  onClick={() => handleTabClick(index)}
-                >
-                  <Button variant="link" className="btn-link">
-                    {item.question}
-                    <BsFillCaretRightFill
-                      className={`ml-2 ${activeTab === index ? "open" : ""}`}
-                    />
-                  </Button>
-                </Accordion.Toggle>
-                <Accordion.Collapse eventKey={index.toString()}>
-                  <Card.Body>{item.answer}</Card.Body>
-                </Accordion.Collapse>
-              </Card>
-            ))}
-          </Accordion>
-
-          <div className="about-btn text-center">
-            <div className="genius-btn gradient-bg text-center text-uppercase ul-li-block bold-font">
-              <a href="#">
-                Make Question <BsFillCaretRightFill />
-              </a>
+        <div className="faq-tab mb45">
+          <div className="faq-tab-ques  ul-li">
+            <div className="tab-button text-center mb45">
+              <ul className="product-tab">
+                <li className="active" rel="tab1">
+                  GENERAL{" "}
+                </li>
+                <li rel="tab2"> COURSES </li>
+                <li rel="tab3"> TEACHERS </li>
+                <li rel="tab4"> EVENTS </li>
+                <li rel="tab5"> OTHERS </li>
+              </ul>
             </div>
-            <div className="genius-btn gradient-bg text-center text-uppercase ul-li-block bold-font">
-              <a href="#">
-                Contact Us <BsFillCaretRightFill />
-              </a>
+
+            <div className="tab-container">
+              <div id="tab1" className="tab-content-1 pt35">
+                <div id="accordion" className="panel-group">
+                  <div className="panel">
+                    <div className="panel-title" id="headingOne">
+                      <h3 className="mb-0">
+                        <button
+                          className="btn btn-link"
+                          data-toggle="collapse"
+                          data-target="#collapseOne"
+                          aria-expanded="true"
+                          aria-controls="collapseOne"
+                        >
+                          How to Register or Make An Account in Genius?
+                        </button>
+                      </h3>
+                    </div>
+                    <div
+                      id="collapseOne"
+                      className="collapse show"
+                      aria-labelledby="headingOne"
+                      data-parent="#accordion"
+                    >
+                      <div className="panel-body">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                        dolore magna aliquam volutpat. Ut wisi enim ad minim
+                        veniam consectetuer adipiscing elit, sed diam nonummy.
+                      </div>
+                    </div>
+                  </div>
+                  <div className="panel">
+                    <div className="panel-title" id="headingTwo">
+                      <h3 className="mb-0">
+                        <button
+                          className="btn btn-link collapsed"
+                          data-toggle="collapse"
+                          data-target="#collapseTwo"
+                          aria-expanded="false"
+                          aria-controls="collapseTwo"
+                        >
+                          What is Genius Courses?
+                        </button>
+                      </h3>
+                    </div>
+                    <div
+                      id="collapseTwo"
+                      className="collapse"
+                      aria-labelledby="headingTwo"
+                      data-parent="#accordion"
+                    >
+                      <div className="panel-body">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                        dolore magna aliquam volutpat. Ut wisi enim ad minim
+                        veniam consectetuer adipiscing elit, sed diam nonummy.
+                      </div>
+                    </div>
+                  </div>
+                  <div className="panel">
+                    <div className="panel-title" id="headingThree">
+                      <h3 className="mb-0">
+                        <button
+                          className="btn btn-link collapsed"
+                          data-toggle="collapse"
+                          data-target="#collapseThree"
+                          aria-expanded="false"
+                          aria-controls="collapseThree"
+                        >
+                          What Lorem Ipsum Dolor Sit Amet Consectuerer?
+                        </button>
+                      </h3>
+                    </div>
+                    <div
+                      id="collapseThree"
+                      className="collapse"
+                      aria-labelledby="headingThree"
+                      data-parent="#accordion"
+                    >
+                      <div className="panel-body">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                        dolore magna aliquam volutpat. Ut wisi enim ad minim
+                        veniam consectetuer adipiscing elit, sed diam nonummy.
+                      </div>
+                    </div>
+                  </div>
+                  <div className="panel">
+                    <div className="panel-title" id="headingFoure">
+                      <h3 className="mb-0">
+                        <button
+                          className="btn btn-link collapsed"
+                          data-toggle="collapse"
+                          data-target="#collapseFoure"
+                          aria-expanded="false"
+                          aria-controls="collapseFoure"
+                        >
+                          Adipiscing Diamet Nonnumy Nibh Euismod?
+                        </button>
+                      </h3>
+                    </div>
+                    <div
+                      id="collapseFoure"
+                      className="collapse"
+                      data-parent="#accordion"
+                    >
+                      <div className="panel-body">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                        dolore magna aliquam volutpat. Ut wisi enim ad minim
+                        veniam consectetuer adipiscing elit, sed diam nonummy.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="tab2" className="tab-content-1 pt35">
+                <div id="accordion-2" className="panel-group">
+                  <div className="panel">
+                    <div className="panel-title" id="headingSix">
+                      <h3 className="mb-0">
+                        <button
+                          className="btn btn-link"
+                          data-toggle="collapse"
+                          data-target="#collapseSix"
+                          aria-expanded="true"
+                          aria-controls="collapseSix"
+                        >
+                          How to Register or Make An Account in Genius?
+                        </button>
+                      </h3>
+                    </div>
+                    <div
+                      id="collapseSix"
+                      className="collapse show"
+                      aria-labelledby="headingSix"
+                      data-parent="#accordion-2"
+                    >
+                      <div className="panel-body">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                        dolore magna aliquam volutpat. Ut wisi enim ad minim
+                        veniam consectetuer adipiscing elit, sed diam nonummy.
+                      </div>
+                    </div>
+                  </div>
+                  <div className="panel">
+                    <div className="panel-title" id="headingSeven">
+                      <h3 className="mb-0">
+                        <button
+                          className="btn btn-link collapsed"
+                          data-toggle="collapse"
+                          data-target="#collapseSeven"
+                          aria-expanded="false"
+                          aria-controls="collapseSeven"
+                        >
+                          What is Genius Courses?
+                        </button>
+                      </h3>
+                    </div>
+                    <div
+                      id="collapseSeven"
+                      className="collapse"
+                      aria-labelledby="headingSeven"
+                      data-parent="#accordion-2"
+                    >
+                      <div className="panel-body">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                        dolore magna aliquam volutpat. Ut wisi enim ad minim
+                        veniam consectetuer adipiscing elit, sed diam nonummy.
+                      </div>
+                    </div>
+                  </div>
+                  <div className="panel">
+                    <div className="panel-title" id="headingEight">
+                      <h3 className="mb-0">
+                        <button
+                          className="btn btn-link collapsed"
+                          data-toggle="collapse"
+                          data-target="#collapseEight"
+                          aria-expanded="false"
+                          aria-controls="collapseEight"
+                        >
+                          What Lorem Ipsum Dolor Sit Amet Consectuerer?
+                        </button>
+                      </h3>
+                    </div>
+                    <div
+                      id="collapseEight"
+                      className="collapse"
+                      aria-labelledby="headingEight"
+                      data-parent="#accordion-2"
+                    >
+                      <div className="panel-body">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                        dolore magna aliquam volutpat. Ut wisi enim ad minim
+                        veniam consectetuer adipiscing elit, sed diam nonummy.
+                      </div>
+                    </div>
+                  </div>
+                  <div className="panel">
+                    <div className="panel-title" id="headingNine">
+                      <h3 className="mb-0">
+                        <button
+                          className="btn btn-link collapsed"
+                          data-toggle="collapse"
+                          data-target="#collapseNine"
+                          aria-expanded="false"
+                          aria-controls="collapseNine"
+                        >
+                          Adipiscing Diamet Nonnumy Nibh Euismod?
+                        </button>
+                      </h3>
+                    </div>
+                    <div
+                      id="collapseNine"
+                      className="collapse"
+                      aria-labelledby="headingNine"
+                      data-parent="#accordion-2"
+                    >
+                      <div className="panel-body">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                        dolore magna aliquam volutpat. Ut wisi enim ad minim
+                        veniam consectetuer adipiscing elit, sed diam nonummy.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="tab3" className="tab-content-1 pt35">
+                <div className="row">
+                  <div className="col-md-6">
+                    <div className="ques-ans mb45 headline">
+                      <h3> What is Genius Courses?</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                        dolore magna aliquam volutpat. Ut wisi enim ad minim
+                        veniam.
+                      </p>
+                    </div>
+
+                    <div className="ques-ans mb45 headline">
+                      <h3> What Lorem Ipsum Dolor Sit Amet Consectuerer?</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                        dolore magna aliquam volutpat. Ut wisi enim ad minim
+                        veniam.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="col-md-6">
+                    <div className="ques-ans mb45 headline">
+                      <h3> How to Register or Make An Account in Genius?</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                        dolore magna aliquam volutpat. Ut wisi enim ad minim
+                        veniam.
+                      </p>
+                    </div>
+
+                    <div className="ques-ans mb45 headline">
+                      <h3> Adipiscing Diamet Nonnumy Nibh Euismod?</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                        dolore magna aliquam volutpat. Ut wisi enim ad minim
+                        veniam.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="tab4" className="tab-content-1 pt35">
+                <div className="row">
+                  <div className="col-md-6">
+                    <div className="ques-ans mb45 headline">
+                      <h3> What is Genius Courses?</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                        dolore magna aliquam volutpat. Ut wisi enim ad minim
+                        veniam.
+                      </p>
+                    </div>
+
+                    <div className="ques-ans mb45 headline">
+                      <h3> What Lorem Ipsum Dolor Sit Amet Consectuerer?</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                        dolore magna aliquam volutpat. Ut wisi enim ad minim
+                        veniam.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="col-md-6">
+                    <div className="ques-ans mb45 headline">
+                      <h3> How to Register or Make An Account in Genius?</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                        dolore magna aliquam volutpat. Ut wisi enim ad minim
+                        veniam.
+                      </p>
+                    </div>
+
+                    <div className="ques-ans mb45 headline">
+                      <h3> Adipiscing Diamet Nonnumy Nibh Euismod?</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                        dolore magna aliquam volutpat. Ut wisi enim ad minim
+                        veniam.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="tab5" className="tab-content-1 pt35">
+                <div className="row">
+                  <div className="col-md-6">
+                    <div className="ques-ans mb45 headline">
+                      <h3> What is Genius Courses?</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                        dolore magna aliquam volutpat. Ut wisi enim ad minim
+                        veniam.
+                      </p>
+                    </div>
+
+                    <div className="ques-ans mb45 headline">
+                      <h3> What Lorem Ipsum Dolor Sit Amet Consectuerer?</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                        dolore magna aliquam volutpat. Ut wisi enim ad minim
+                        veniam.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="col-md-6">
+                    <div className="ques-ans mb45 headline">
+                      <h3> How to Register or Make An Account in Genius?</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                        dolore magna aliquam volutpat. Ut wisi enim ad minim
+                        veniam.
+                      </p>
+                    </div>
+
+                    <div className="ques-ans mb45 headline">
+                      <h3> Adipiscing Diamet Nonnumy Nibh Euismod?</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+                        dolore magna aliquam volutpat. Ut wisi enim ad minim
+                        veniam.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
-    </>
+
+        <div className="about-btn text-center">
+          <div className="genius-btn gradient-bg text-center text-uppercase ul-li-block bold-font">
+            <a href="#">
+              Make Question <i className="fas fa-caret-right"></i>
+            </a>
+          </div>
+          <div className="genius-btn gradient-bg text-center text-uppercase ul-li-block bold-font">
+            <a href="#">
+              contact us <i className="fas fa-caret-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
