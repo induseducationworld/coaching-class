@@ -1,0 +1,45 @@
+.announcement-strip {
+  width: 100%;
+  background: #f8d7da;
+  color: #721c24;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.announcement-text {
+  display: inline-block;
+  padding: 10px 0;
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.search-body {
+  position: relative;
+}
+
+.search-form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #ddd;
+  z-index: 1000;
+}
+
+.search-close {
+  background: none;
+  border: none;
+  color: #000;
+  cursor: pointer;
+}

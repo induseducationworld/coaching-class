@@ -1,0 +1,26 @@
+pages: HOME, COURSES, RESOURCES, CONTACT US, LOGIN/SIGNUP
+courses available : 
+about US
+what makes us different 
+why choose us
+success stories/reviews 
+chat us BOT
+FAQ's
+introduction passage
+email, socials, phone number, location
+free counseling 
+careers
+blogs 
+
+
+
+login/signup : admin-> owner + access given
+teachers
+student
+guest 
+
+cart for buying course + payment gateway
+
+
+
+a scrollbar of new announcement
