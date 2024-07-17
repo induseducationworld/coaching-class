@@ -1,0 +1,48 @@
+.second-teacher-section {
+  padding: 60px 0;
+}
+
+.section-title {
+  margin-bottom: 35px;
+}
+
+.teacher-card {
+  position: relative;
+}
+
+.teacher-img-social {
+  position: relative;
+}
+
+.teacher-img-social .blakish-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.teacher-social-list ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.teacher-social-list ul li {
+  margin: 0 5px;
+}
+
+.teacher-social-list ul li a {
+  color: #fff;
+}
+
+.teacher-name-designation {
+  margin-top: 15px;
+}
+
+.genius-btn {
+  font-weight: bold;
+}

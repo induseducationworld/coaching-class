@@ -1,5 +1,5 @@
 import React from "react";
-
+import banner from "../../assets/img/banner/wc-2.png";
 const WhyChooseUs = () => {
   return (
     <section id="why-choose" className="why-choose-section backgroud-style">
@@ -17,7 +17,7 @@ const WhyChooseUs = () => {
                 <div className="extra-left-content ">
                   <div className="extra-icon-text text-left">
                     <div className="features-icon gradient-bg text-center">
-                      <i className="flaticon-maths-className-materials-cross-of-a-pencil-and-a-ruler"></i>
+                      <i className="flaticon-ruler-and-pencil"></i>
                     </div>
                     <div className="features-text">
                       <div className="features-text-title">
@@ -75,7 +75,7 @@ const WhyChooseUs = () => {
 
             <div className="col-sm-4">
               <div className="extra-pic text-center ">
-                <img src="assets/img/banner/wc-2.png" alt="img" />
+                <img src={banner} alt="img" />
               </div>
             </div>
 
