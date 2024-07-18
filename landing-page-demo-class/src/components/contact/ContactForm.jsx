@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Button, Alert } from "react-bootstrap";
 import { FaCaretRight } from "react-icons/fa";
+import BASE_URL from "../../config";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
+    phone: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -28,7 +30,7 @@ const ContactForm = () => {
     setErrorMessage(null);
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(`${BASE_URL}/api/contact/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -48,6 +50,7 @@ const ContactForm = () => {
         name: "",
         email: "",
         message: "",
+        phone: "",
       });
     } catch (error) {
       console.error("Error:", error);
@@ -81,6 +84,17 @@ const ContactForm = () => {
             type="email"
             placeholder="Your Email"
             value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="contact-info">
+          <input
+            className="phone"
+            name="phone"
+            type="phone"
+            placeholder="Your Phone"
+            value={formData.phone}
             onChange={handleChange}
             required
           />

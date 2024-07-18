@@ -4,9 +4,10 @@ const { parse } = require("json2csv");
 
 // Configure your email transport using SMTP or another method
 const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST,
-  port: process.env.EMAIL_PORT,
-  secure: true, // Use SSL/TLS
+  service: "Gmail",
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false, // true for 465, false for other ports
   auth: {
     user: process.env.EMAIL_USER, // Your email address
     pass: process.env.EMAIL_PASS, // Your email password or app password
@@ -19,8 +20,9 @@ const sendConfirmationEmail = async (name, email) => {
   try {
     const mailOptions = {
       to: email,
-      from: process.env.EMAIL_USER, // Your verified sender email
+      from: "TESTING <induseducationworld@gmail.com>", // Your verified sender email
       subject: "Registration Confirmation for Demo Class",
+      text: "Hello world?", // plain text body
       html: `
         <p>Dear ${name},</p>
         <p>Thank you for registering for the demo class.</p>
