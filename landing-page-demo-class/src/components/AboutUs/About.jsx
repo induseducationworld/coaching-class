@@ -1,6 +1,7 @@
 import React from "react";
-import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import { FaCaretRight } from "react-icons/fa";
+import Register from "./Register"; // Import the RegisterForm component
 import aboutImage from "../../assets/img/about/abt.jpg"; // Adjust the path according to your project structure
 
 const About = () => {
@@ -9,73 +10,8 @@ const About = () => {
       <Container>
         <Row>
           <Col md={5}>
-            <Card className="about-resigter-form backgroud-style relative-position">
-              <Card.Body>
-                <div className="register-content">
-                  <div className="register-fomr-title text-center">
-                    <h3 className="bold-font">
-                      <span>Get a</span> Free Registration.
-                    </h3>
-                    <p>More Than 122K Online Available Courses</p>
-                  </div>
-                  <Form
-                    className="register-form-area contact_form"
-                    action="#"
-                    method="POST"
-                    encType="multipart/form-data"
-                  >
-                    <Form.Group className="contact-info">
-                      <Form.Control
-                        type="text"
-                        placeholder="Your Name"
-                        name="name"
-                      />
-                    </Form.Group>
-                    <Form.Group className="contact-info">
-                      <Form.Control
-                        type="number"
-                        placeholder="Your Number"
-                        name="nbm"
-                      />
-                    </Form.Group>
-                    <Form.Group className="contact-info">
-                      <Form.Control
-                        type="email"
-                        placeholder="Email Address"
-                        name="email"
-                      />
-                    </Form.Group>
-                    <Form.Group>
-                      <Form.Control as="select" defaultValue="Select Course">
-                        <option value="9">Select Course</option>
-                        <option value="10">Web Design</option>
-                        <option value="11">Web Development</option>
-                        <option value="12">Php Core</option>
-                      </Form.Control>
-                    </Form.Group>
-                    <Form.Group className="contact-info">
-                      <Form.Control
-                        type="text"
-                        id="datepicker"
-                        placeholder="Date"
-                      />
-                    </Form.Group>
-                    <Form.Group>
-                      <Form.Control
-                        as="textarea"
-                        rows={3}
-                        placeholder="Message"
-                      />
-                    </Form.Group>
-                    <div className="nws-button text-uppercase text-center white text-capitalize">
-                      <Button type="submit" className="btn btn-primary">
-                        SUBMIT REQUEST
-                      </Button>
-                    </div>
-                  </Form>
-                </div>
-              </Card.Body>
-            </Card>
+            <Register />
+
             <div className="bg-mockup">
               <img src={aboutImage} alt="About Us" className="img-fluid" />
             </div>
@@ -84,36 +20,30 @@ const About = () => {
           <Col md={7}>
             <div className="about-us-text">
               <div className="section-title relative-position mb20 headline text-left">
-                <span className="subtitle ml42 text-uppercase">
-                  SHORT ABOUT US
-                </span>
+                <span className="subtitle ml42 text-uppercase">ABOUT US</span>
                 <h2>
-                  We are <span>Genius Course</span> working since 1980.
+                  We are <span>Indus Education World</span> working since 1980.
                 </h2>
                 <p>
-                  We take our mission of increasing global access to quality
-                  education seriously. We connect learners to the best
-                  universities and institutions from around the world.
+                  Indus Neet is an initiative by a group of Doctors and IIT'ians
+                  with more than 20 years of Teaching experience. We specialize
+                  in preparing droppers, 12th pass out students, and offer
+                  morning batches specifically tailored for 12th pass students
+                  aiming to crack NEET exams.
                 </p>
               </div>
               <div className="about-content-text">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                  diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-                  aliquam volutpat. Ut wisi enim ad minim veniam. magna aliquam
-                  volutpat. Ut wisi enim ad minim veniam.
+                  We take our mission of increasing global access to quality
+                  education seriously. We connect learners to the best
+                  universities and institutions from around the world. Drop Year
+                  Batch start date:
                 </p>
                 <div className="about-list mb65 ul-li-block">
                   <ul>
-                    <li>Professional And Experienced Since 1980</li>
-                    <li>
-                      We Connect Learners To The Best Universities From Around
-                      The World
-                    </li>
-                    <li>
-                      Our Mission Increasing Global Access To Quality Education
-                    </li>
-                    <li>100K Online Available Courses</li>
+                    <li>1st August 2024 Classes, 4 days a week.</li>
+                    <li>2 Free Trial classes per subject</li>
+                    <li>Study Modules</li>
                   </ul>
                 </div>
                 <div className="about-btn">

@@ -1,5 +1,5 @@
-const { Group, validateGroup } = require("../models/group");
-const { User } = require("../models/user");
+const { Group, validateGroup } = require("../model/group");
+const { User } = require("../model/user");
 
 const createGroup = async (req, res) => {
   const { error } = validateGroup(req.body);

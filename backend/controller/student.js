@@ -1,8 +1,8 @@
-const { User } = require("../models/user");
-const TestPaper = require("../models/testpaper");
+const { User } = require("../model/user");
+const TestPaper = require("../model/testpaper");
 const { sendMail } = require("./sendMail");
-const ResponseSheet = require("../models/responseSheet");
-const Response = require("../models/response");
+const ResponseSheet = require("../model/responseSheet");
+const Response = require("../model/response");
 const {
   validateStudent,
   validateSignin,
@@ -45,49 +45,6 @@ const registerStudent = async (req, res) => {
      Click on the link given to take test  "${link}student/test?testid=${testId}&studentid=${student._id}"`
   );
   res.send("Successfully Registered Check your mail");
-};
-
-const login = async (req, res) => {
-  const { error } = validateSignin(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
-
-  const user = await User.findOne({ email: req.body.email });
-  if (!user) return res.status(401).send("Invalid email or password");
-
-  const validPassword = await bcrypt.compare(req.body.password, user.password);
-  if (!validPassword) return res.status(401).send("Invalid email or password");
-
-  if (user.category === "SUPERVISOR" && user.supervisorPerm === false) {
-    return res.status(403).send("Permission not granted");
-  }
-
-  const token = jwt.sign({ _id: user._id }, jwtPrivateKey);
-
-  res.json({
-    token,
-    _id: user._id,
-    name: user.name,
-    email: user.email,
-    category: user.category,
-  });
-};
-
-const signup = async (req, res) => {
-  const { error } = validateSignup(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
-
-  const { name, email, password, category } = req.body;
-
-  let user = await User.findOne({ email: req.body.email });
-  if (user) return res.status(409).send("User already registered");
-
-  user = new User({ name, email, password, category });
-
-  const salt = await bcrypt.genSalt(10);
-  user.password = await bcrypt.hash(user.password, salt);
-
-  await user.save();
-  res.send("successfully signin");
 };
 
 const getTestQuestions = async (req, res) => {
@@ -292,7 +249,7 @@ const getStudentAllTest = async (req, res) => {
 module.exports = {
   getResponsePdf,
   uploadPdfResponse,
-  login,
+
   getTestCategory,
   getTestStartTime,
   updateResponse,

@@ -5,13 +5,14 @@ import {
   FaMapMarkerAlt,
   FaPhone,
   FaEnvelope,
-  FaCaretRight,
   FaFacebookF,
   FaTwitter,
   FaGooglePlusG,
 } from "react-icons/fa";
+import ContactForm from "./ContactForm"; // Import the ContactForm component
 import bt from "../../assets/img/banner/bt.png";
 import logo from "../../assets/img/logo/logo.png";
+
 const Contact = () => {
   return (
     <section
@@ -31,9 +32,9 @@ const Contact = () => {
                     <span>Get in Touch</span>
                   </h2>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                    sed diam nonummy nibh euismod tincidunt ut laoreet ipsum
-                    dolor sit amet, consectetuer adipiscing elit.
+                    Feel free to reach out to us with any questions or feedback.
+                    Our team is here to assist you with any inquiries you may
+                    have.
                   </p>
                 </div>
 
@@ -45,11 +46,8 @@ const Contact = () => {
                     <div className="address-details ul-li-block">
                       <ul>
                         <li>
-                          <span>Primary: </span>Last Vegas, 120 Graphic Street,
-                          US
-                        </li>
-                        <li>
-                          <span>Second: </span>Califorinia, 88 Design Street, US
+                          <span>Primary: </span>CRD Complex 2nd floor Sector 104
+                          Hajipur, Noida, Near primary care hospital
                         </li>
                       </ul>
                     </div>
@@ -62,10 +60,7 @@ const Contact = () => {
                     <div className="address-details ul-li-block">
                       <ul>
                         <li>
-                          <span>Primary: </span>(100) 3434 55666
-                        </li>
-                        <li>
-                          <span>Second: </span>(20) 3434 9999
+                          <span>Primary: </span>9560037769
                         </li>
                       </ul>
                     </div>
@@ -78,10 +73,10 @@ const Contact = () => {
                     <div className="address-details ul-li-block">
                       <ul>
                         <li>
-                          <span>Primary: </span>info@geniuscourse.com
+                          <span>Primary: </span>draparna81@gmail.com
                         </li>
                         <li>
-                          <span>Second: </span>mail@genius.info
+                          <span>Second: </span>info@induseducationworld.com
                         </li>
                       </ul>
                     </div>
@@ -95,35 +90,7 @@ const Contact = () => {
                 <div className="section-title-2 mb65 headline text-left">
                   <h2>Send Us a message</h2>
                 </div>
-                <form
-                  className="contact_form"
-                  action="#"
-                  method="POST"
-                  encType="multipart/form-data"
-                >
-                  <div className="contact-info">
-                    <input
-                      className="name"
-                      name="name"
-                      type="text"
-                      placeholder="Your Name."
-                    />
-                  </div>
-                  <div className="contact-info">
-                    <input
-                      className="email"
-                      name="email"
-                      type="email"
-                      placeholder="Your Email"
-                    />
-                  </div>
-                  <textarea placeholder="Message."></textarea>
-                  <div className="nws-button text-center gradient-bg text-capitalize">
-                    <Button type="submit" value="Submit">
-                      SEND MESSAGE NOW <FaCaretRight />
-                    </Button>
-                  </div>
-                </form>
+                <ContactForm />
               </div>
             </Col>
           </Row>
@@ -144,7 +111,7 @@ const Contact = () => {
           <div className="footer_2_subs text-center">
             <p>
               We take our mission of increasing global access to quality
-              education seriously.{" "}
+              education seriously.
             </p>
             <div className="subs-form relative-position">
               <form action="#" method="post">
@@ -155,9 +122,7 @@ const Contact = () => {
                   placeholder="Email Address."
                 />
                 <div className="nws-button text-center gradient-bg text-uppercase">
-                  <Button type="submit" value="Submit">
-                    Subscribe now
-                  </Button>
+                  <Button type="submit">Subscribe now</Button>
                 </div>
               </form>
             </div>

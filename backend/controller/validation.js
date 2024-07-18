@@ -1,7 +1,7 @@
 const Joi = require("joi");
 Joi.objectId = require("joi-objectid")(Joi);
 
-function validationSignup(user) {
+function validateSignup(user) {
   const schema = Joi.object({
     name: Joi.string().max(50).required(),
     email: Joi.string().max(50).required().email(),

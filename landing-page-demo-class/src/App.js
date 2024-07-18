@@ -1,15 +1,16 @@
-import logo from "./logo.svg";
-import Header from "./components/Header/Header";
-import About from "./components/AboutUs/About";
+// src/App.js
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Header from "./components/Header/Header";
+
 import Contact from "./components/contact/Contact";
-import AboutUsSection from "./components/AboutUs/AboutUsSection";
-import FAQ from "./components/FAQ/FAQ";
-import Teacher from "./components/Teacher/Teacher";
-import WhyChooseUs from "./components/WhyChooseUs/WhyChooseUs";
+import Home from "./components/Home";
 import Preloader from "./components/Preloader";
-import { useEffect, useState } from "react";
+import Footer from "./components/contact/Footer";
+import AdminWrapper from "./components/Admin/AdminWrapper";
 import "./App.css";
+
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -20,19 +21,21 @@ function App() {
 
     return () => clearTimeout(timer);
   }, []);
+
   return (
-    <div className="App">
-      <Preloader loading={loading} />
+    <Router>
+      <div className="App">
+        <Preloader loading={loading} />
 
-      <Header />
-      <About />
-      <AboutUsSection />
-      <WhyChooseUs />
-      <Teacher />
+        <Header />
+        <Routes>
+          <Route path="/" exact element={<Home />} />
 
-      {/* <FAQ /> */}
-      <Contact />
-    </div>
+          {/* Add more routes here for other sections if needed */}
+          <Route path="/admin" element={<AdminWrapper />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

@@ -21,6 +21,11 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s;
+}
+
+.teacher-img-social:hover .blakish-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .teacher-social-list ul {
@@ -37,6 +42,12 @@
 
 .teacher-social-list ul li a {
   color: #fff;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.teacher-social-list ul li a:hover {
+  color: #ddd;
+  transform: scale(1.2);
 }
 
 .teacher-name-designation {

@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../../assets/img/logo/logo.png";
+
 const Header = () => {
   return (
     <header>
@@ -9,36 +11,30 @@ const Header = () => {
           <div className="container">
             <div className="navbar-default">
               <div className="navbar-header float-left">
-                <a className="navbar-brand text-uppercase" href="#">
-                  <img src={logo} alt="logo" />
-                </a>
+                <Link className="navbar-brand text-uppercase" to="/">
+                  {" "}
+                  {/* Use Link component */}
+                  {/* <img src={logo} alt="logo" /> */}
+                  <h2 style={{ color: "#fff" }}>
+                    <span>Indus Education World</span>
+                  </h2>
+                </Link>
               </div>
 
               <nav className="navbar-menu float-right">
                 <div className="nav-menu ul-li">
                   <ul>
                     <li className="menu-item-has-children ul-li-block">
-                      <a href="/">Home</a>
+                      <Link to="/">Home</Link> {/* Use Link component */}
                     </li>
                     <li>
-                      <a href="about.html">About Us</a>
+                      <a href="#about-us">About Us</a>
                     </li>
                     <li>
-                      <a href="shop.html">shop</a>
+                      <a href="#message">Message</a>
                     </li>
                     <li>
-                      <a href="contact.html">Contact Us</a>
-                    </li>
-                    <li className="menu-item-has-children ul-li-block">
-                      <a href="#!">Pages</a>
-                      <ul className="sub-menu">
-                        <li>
-                          <a href="teacher.html">Teacher</a>
-                        </li>
-                        <li>
-                          <a href="teacher-details.html">Teacher Details</a>
-                        </li>
-                      </ul>
+                      <a href="#contactus">Contact Us</a>
                     </li>
                   </ul>
                 </div>
