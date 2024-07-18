@@ -1,0 +1,27 @@
+/* Sidebar.css */
+
+.sidebar {
+  background-color: #f8f9fa; /* Light gray background */
+  padding: 32px;
+  border-right: 74px solid #dee2e6;
+  height: 225%;
+}
+
+.sidebar .nav-link {
+  font-size: 18px; /* Font size for the links */
+  color: #343a40; /* Text color */
+  padding: 10px 0; /* Vertical padding */
+}
+
+.sidebar .nav-link:hover {
+  background-color: #e9ecef; /* Light gray background on hover */
+}
+
+.sidebar .nav-link .icon {
+  font-size: 24px; /* Size of the icons */
+}
+
+/* Optional: Adjust toggle button */
+.sidebar .navbar-toggler-icon {
+  color: #343a40; /* Color of the toggle icon */
+}

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { CSVLink } from "react-csv";
 import axios from "axios";
 import { Container, Row, Col, Form, Table, Button } from "react-bootstrap";
+import Sidebar from "./Sidebar";
+import BASE_URL from "../../config";
 
 const AdminWrapper = () => {
   const [registrations, setRegistrations] = useState([]);
@@ -11,7 +13,7 @@ const AdminWrapper = () => {
   useEffect(() => {
     const fetchRegistrations = async () => {
       try {
-        const response = await axios.get("/api/registrations");
+        const response = await axios.get(`${BASE_URL}/students/registrations`);
         setRegistrations(response.data);
         setFilteredRegistrations(response.data);
       } catch (error) {
@@ -39,7 +41,7 @@ const AdminWrapper = () => {
 
   const downloadCSV = async () => {
     try {
-      const response = await axios.get("/api/registrations/download", {
+      const response = await axios.get(`${BASE_URL}/students/downloadExcel`, {
         responseType: "blob", // Important to specify blob for binary data
       });
       const blob = new Blob([response.data], { type: "text/csv" });
@@ -51,52 +53,64 @@ const AdminWrapper = () => {
       console.error("Error downloading CSV:", error);
     }
   };
-
   return (
-    <Container className="admin-wrapper mt-5">
-      <Row className="mb-4">
-        <Col>
-          <h2>Registrations</h2>
-        </Col>
-      </Row>
+    <section className="about-us-section">
+      <Container fluid>
+        <Row>
+          <Col md={3} className="sidebar-col">
+            <Sidebar />
+          </Col>
+          <Col md={9} className="content-col">
+            <div className="admin-content">
+              <Container className="admin-wrapper mt-5">
+                <Row className="mb-4">
+                  <Col>
+                    <h2>Registrations</h2>
+                  </Col>
+                </Row>
 
-      <Row className="mb-3">
-        <Col md={8}>
-          <Form.Control
-            type="text"
-            placeholder="Search by name, email, or phone"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </Col>
-        <Col md={4} className="text-right">
-          <Button onClick={downloadCSV} className="btn btn-primary">
-            Download CSV
-          </Button>
-        </Col>
-      </Row>
+                <Row className="mb-3">
+                  <Col md={8}>
+                    <Form.Control
+                      type="text"
+                      placeholder="Search by name, email, or phone"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                  </Col>
+                  <Col md={4} className="text-right">
+                    <Button onClick={downloadCSV} className="btn btn-primary">
+                      Download CSV
+                    </Button>
+                  </Col>
+                </Row>
 
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Confirm Droppers</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredRegistrations.map((registration) => (
-            <tr key={registration._id}>
-              <td>{registration.name}</td>
-              <td>{registration.email}</td>
-              <td>{registration.phone}</td>
-              <td>{registration.confirmDroppers ? "Yes" : "No"}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-    </Container>
+                <Table striped bordered hover>
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+                      <th>Confirm Droppers</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filteredRegistrations.map((registration) => (
+                      <tr key={registration._id}>
+                        <td>{registration.name}</td>
+                        <td>{registration.email}</td>
+                        <td>{registration.phone}</td>
+                        <td>{registration.confirmDroppers ? "Yes" : "No"}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              </Container>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </section>
   );
 };
 
