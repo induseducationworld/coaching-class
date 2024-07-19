@@ -27,6 +27,7 @@ function App() {
     <Router>
       <div className="App">
         <Preloader loading={loading} />
+
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />

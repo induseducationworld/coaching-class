@@ -125,7 +125,6 @@ const Register = () => {
             <div className="form-check" style={{ marginTop: "10px" }}>
               <input
                 type="checkbox"
-                className="form-check-input"
                 id="confirmDroppers"
                 name="confirmDroppers"
                 checked={formData.confirmDroppers}
@@ -133,10 +132,10 @@ const Register = () => {
                 required
               />
               <label
-                className="form-check-label"
-                htmlFor="confirmDroppers"
-                style={{ marginLeft: "5px", color: "#000" }}
+                htmlFor="checkBox"
+                style={{ backgroundColor: "#000", color: "#fff" }}
               >
+                {" "}
                 Confirm that you have passed out 12th and opt for the droppers
                 batch
               </label>

@@ -61,28 +61,6 @@ const AboutUsSection = () => {
               </div>
             </div>
           </Col>
-
-          <Col md={3}>
-            <div className="side-bar-widget first-widget">
-              <h2 className="widget-title text-capitalize">
-                <span>Find A Course </span>&amp; Sign up Today.
-              </h2>
-              <div className="course-img">
-                <img src={ct} alt="" />
-              </div>
-              <div className="course-desc">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                  diam nonummy nibh euismod tincidunt.
-                </p>
-              </div>
-              <div className="genius-btn gradient-bg text-center text-uppercase ul-li-block bold-font">
-                <a href="#">
-                  VIEW ONLINE COURSES <i className="fas fa-caret-right"></i>
-                </a>
-              </div>
-            </div>
-          </Col>
         </Row>
       </Container>
     </section>
