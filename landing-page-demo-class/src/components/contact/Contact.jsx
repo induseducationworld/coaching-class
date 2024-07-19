@@ -23,7 +23,7 @@ const Contact = () => {
         <div className="contact_secound_content">
           <Row>
             <Col md={6}>
-              <div className="contact-left-content">
+              <div className="contact-left-content" id="contactus">
                 <div className="section-title mb45 headline text-left">
                   <span className="subtitle ml42 text-uppercase">
                     CONTACT US
@@ -105,7 +105,10 @@ const Contact = () => {
             </a>
           </div>
           <div className="footer_2_logo text-center">
-            <img src={logo} alt="" />
+            {/* <img src={logo} alt="" /> */}{" "}
+            <h2 style={{ color: "#fff" }}>
+              <span> INDUS EDUCATION WORLD</span>
+            </h2>
           </div>
 
           <div className="footer_2_subs text-center">
@@ -136,6 +139,7 @@ const Contact = () => {
                     <a
                       href="https://pickyvibe.com/"
                       style={{ color: "#2ECC40" }}
+                      target="_blank"
                     >
                       {" "}
                       Picky Vibe LLP

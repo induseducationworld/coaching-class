@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import about2 from "../../assets/img/about/abt-2.jpg";
-import about3 from "../../assets/img/about/abt-3.jpg";
-import about4 from "../../assets/img/about/abt-4.jpg";
+import about2 from "../../assets/img/about/abt-5.jpeg";
+import about3 from "../../assets/img/about/abt-6.jpeg";
+import about4 from "../../assets/img/about/abt-7.jpeg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ct from "../../assets/img/teacher/ct-1.jpg";
 
@@ -12,7 +12,7 @@ const AboutUsSection = () => {
       <Container>
         <Row>
           <Col md={9}>
-            <div className="about-us-content-item">
+            <div className="about-us-content-item" id="message">
               <div className="about-gallery">
                 <div className="about-gallery-img grid-1">
                   <img src={about2} alt="" />

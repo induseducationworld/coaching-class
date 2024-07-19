@@ -1,6 +1,6 @@
 import React from "react";
 import { Nav, Navbar, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   BsFillPersonFill,
   BsCardChecklist,
@@ -14,17 +14,12 @@ const Sidebar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="flex-column">
-            <Link to="/admin/registration">
-              <Nav.Link>
-                <BsFillPersonFill className="mr-2" /> Registration
-              </Nav.Link>
-            </Link>
-            <Link to="/admin/contact">
-              <Nav.Link>
-                <BsChatSquareDots className="mr-2" /> Contact Us
-              </Nav.Link>
-            </Link>
-            {/* Add more links as needed */}
+            <Nav.Link as={NavLink} to="/admin">
+              <BsFillPersonFill className="mr-2" /> Registration
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/admin/contact">
+              <BsChatSquareDots className="mr-2" /> Contact Us
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

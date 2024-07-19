@@ -4,7 +4,7 @@ import axios from "axios";
 import { Container, Row, Col, Form, Table, Button } from "react-bootstrap";
 import Sidebar from "./Sidebar";
 import BASE_URL from "../../config";
-
+import "./admin.css";
 const AdminWrapper = () => {
   const [registrations, setRegistrations] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -54,8 +54,8 @@ const AdminWrapper = () => {
     }
   };
   return (
-    <section className="about-us-section">
-      <Container fluid>
+    <section className="about-us-section home-secound">
+      <Container fluid className="mt-5">
         <Row>
           <Col md={3} className="sidebar-col">
             <Sidebar />

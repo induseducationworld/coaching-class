@@ -1,4 +1,5 @@
 const Contact = require("../model/contact");
+const { Parser } = require("json2csv");
 
 const createContact = async (req, res) => {
   const { name, email, phone, message } = req.body;
@@ -62,6 +63,7 @@ const getSingleContact = async (req, res) => {
       .json({ success: false, message: "Failed to get the contact" });
   }
 };
+
 // @desc    Delete a contact query
 // @route   DELETE /api/contact/:id
 // @access  Private (admin)
@@ -86,9 +88,30 @@ const deleteContact = async (req, res) => {
   }
 };
 
+// @desc    Download contacts as CSV
+// @route   GET /api/contacts/download
+// @access  Private (admin)
+const downloadCSV = async (req, res) => {
+  try {
+    const contacts = await Contact.find().lean();
+
+    // Initialize the parser
+    const json2csvParser = new Parser();
+    const csv = json2csvParser.parse(contacts);
+
+    res.header("Content-Type", "text/csv");
+    res.attachment("contacts.csv");
+    return res.send(csv);
+  } catch (err) {
+    console.error("Error generating CSV:", err);
+    res.status(500).json({ success: false, message: "Failed to download CSV" });
+  }
+};
+
 module.exports = {
   createContact,
   getAllContacts,
   getSingleContact,
   deleteContact,
+  downloadCSV,
 };

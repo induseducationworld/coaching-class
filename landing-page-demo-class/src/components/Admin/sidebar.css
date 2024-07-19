@@ -25,3 +25,43 @@
 .sidebar .navbar-toggler-icon {
   color: #343a40; /* Color of the toggle icon */
 }
+/* Sidebar.css */
+
+/* Navbar Styles */
+.sidebar {
+  min-height: 100vh;
+  width: 250px;
+  background-color: #343a40;
+  color: #ffffff;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar Toggle Styles */
+.sidebar .navbar-toggler {
+  background-color: #ffffff;
+}
+
+/* Navbar Link Styles */
+.sidebar .nav-link {
+  color: #ffffff;
+  font-size: 16px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .nav-link:hover {
+  color: #d4d4d4;
+}
+
+/* Icon Styles */
+.sidebar .nav-link .mr-2 {
+  margin-right: 10px;
+}
+
+/* Active Link Styles */
+.sidebar .nav-link.active {
+  font-weight: bold;
+  color: #d4d4d4;
+}

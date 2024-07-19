@@ -15,7 +15,8 @@ const Footer = () => {
           </a>
         </div>
         <div className="footer_2_logo text-center">
-          <img src={logo} alt="" />
+          {/* <img src={logo} alt="" /> */}
+          INDUS EDUCATION WORLD
         </div>
 
         <div className="footer_2_subs text-center">

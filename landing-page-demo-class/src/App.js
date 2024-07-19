@@ -10,6 +10,7 @@ import Footer from "./components/contact/Footer";
 import AdminWrapper from "./components/Admin/AdminWrapper";
 import Registration from "./components/Admin/AdminWrapper"; // Import Registration component
 import "./App.css";
+import ContactWrapper from "./components/Admin/ContactWrapper";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -30,8 +31,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/admin" element={<AdminWrapper />} />
+          <Route path="/admin/contact" element={<ContactWrapper />} />
         </Routes>
-        <Footer />
       </div>
     </Router>
   );

@@ -46,7 +46,7 @@ const About = () => {
                     <li>Study Modules</li>
                   </ul>
                 </div>
-                <div className="about-btn">
+                {/* <div className="about-btn">
                   <div className="genius-btn gradient-bg text-center text-uppercase ul-li-block bold-font">
                     <a href="#">
                       About Us <FaCaretRight />
@@ -57,7 +57,7 @@ const About = () => {
                       Contact Us <FaCaretRight />
                     </a>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </Col>
