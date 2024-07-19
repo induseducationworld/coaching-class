@@ -55,38 +55,19 @@ const ContactWrapper = () => {
 
   const downloadCSV = async () => {
     try {
-      const response = await axios.get(`${BASE_URL}/api/contact/download`, {
+      const response = await axios.get(`${BASE_URL}/api/contact/downloadCSV`, {
         responseType: "blob",
       });
-      const blob = new Blob([response.data], { type: "text/csv" });
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.setAttribute("download", "contacts.csv");
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      setMessage("CSV downloaded successfully."); // Success message
-    } catch (error) {
-      console.error("Error downloading CSV:", error);
-      setMessage("Error downloading CSV."); // Error message
-    }
-  };
 
-  const handleSubmitMessage = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post(`${BASE_URL}/api/contact`, {
-        name: "Anonymous", // Replace or add fields if required
-        email: "N/A", // Replace or add fields if required
-        phone: "N/A", // Replace or add fields if required
-        message: userMessage,
-      });
-      setMessage("Message submitted successfully."); // Success message
-      setUserMessage(""); // Clear input field
+      const blob = new Blob([response.data], { type: "text/csv" });
+      const link = document.createElement("a");
+      link.href = window.URL.createObjectURL(blob);
+      link.download = "contacts.csv";
+      link.click();
+      setMessage("CSV downloaded successfully.");
     } catch (error) {
-      console.error("Error submitting message:", error);
-      setMessage("Error submitting message."); // Error message
+      console.error("Error downloading CSV:", error.response || error.message);
+      setMessage("Error downloading CSV.");
     }
   };
 

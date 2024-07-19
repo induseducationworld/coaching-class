@@ -11,6 +11,6 @@ router.post("/", createContact);
 router.get("/:id", getSingleContact);
 router.get("/", getAllContacts);
 router.delete("/:id", deleteContact);
-router.get("/download", downloadCSV);
+router.get("/downloadCSV", downloadCSV);
 
 module.exports = router;

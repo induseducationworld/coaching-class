@@ -1,6 +1,6 @@
 const Contact = require("../model/contact");
-const { Parser } = require("json2csv");
-
+const { parse } = require("json2csv");
+const mongoose = require("mongoose");
 const createContact = async (req, res) => {
   const { name, email, phone, message } = req.body;
 
@@ -43,13 +43,15 @@ const getAllContacts = async (req, res) => {
 
 const getSingleContact = async (req, res) => {
   const id = req.params.id;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: "Invalid ID format" });
+  }
+
   try {
     const contact = await Contact.findById(id);
     if (!contact) {
-      return res.status(404).json({
-        success: false,
-        message: "Contact not found",
-      });
+      return res.status(404).json({ message: "Contact not found" });
     }
     res.status(200).json({
       success: true,
@@ -58,9 +60,7 @@ const getSingleContact = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res
-      .status(500)
-      .json({ success: false, message: "Failed to get the contact" });
+    res.status(500).json({ message: "Failed to get the contact" });
   }
 };
 
@@ -91,20 +91,26 @@ const deleteContact = async (req, res) => {
 // @desc    Download contacts as CSV
 // @route   GET /api/contacts/download
 // @access  Private (admin)
+// Backend downloadCSV function
 const downloadCSV = async (req, res) => {
   try {
-    const contacts = await Contact.find().lean();
+    const contacts = await Contact.find({});
+    if (!contacts.length) {
+      return res.status(404).json({ message: "No contacts found" });
+    }
+    const fields = ["name", "email", "phone", "message"];
+    const opts = { fields };
 
-    // Initialize the parser
-    const json2csvParser = new Parser();
-    const csv = json2csvParser.parse(contacts);
+    const csv = parse(contacts, opts);
 
     res.header("Content-Type", "text/csv");
     res.attachment("contacts.csv");
-    return res.send(csv);
+    res.send(csv);
   } catch (err) {
     console.error("Error generating CSV:", err);
-    res.status(500).json({ success: false, message: "Failed to download CSV" });
+    res
+      .status(500)
+      .json({ message: "Failed to download CSV", err: err.message });
   }
 };
 
