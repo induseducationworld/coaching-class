@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors"); // Import the cors package
-
+const dotenv = require("dotenv");
 const studentRoutes = require("./routes/studentRoute");
 const createadmin = require("./controller/createAdmin");
 
@@ -17,10 +17,22 @@ const snapshots = require("./routes/snapshots");
 const audio = require("./routes/audio");
 const contact = require("./routes/contact");
 const groups = require("./routes/group");
-
+dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
+// Connect to MongoDB
+mongoose.set("strictQuery", false);
 
+async function connect() {
+  try {
+    await mongoose.connect(
+      "mongodb+srv://dhruvermafz:09112002@cluster0.wwx10kf.mongodb.net/democlass?retryWrites=true&w=majority&appName=Cluster0"
+    );
+    console.log("MONGODB Database Connected.");
+  } catch (err) {
+    console.log(err, "MONGODB Database Connection Failed!");
+  }
+}
 const corsOptions = {
   origin: true,
   credentials: true,
@@ -36,12 +48,6 @@ app.use(
     parameterLimit: 50000,
   })
 );
-
-// Connect to MongoDB
-mongoose
-  .connect("mongodb://localhost:27017/demoClass")
-  .then(() => console.log("Connected to MongoDB..."))
-  .catch((err) => console.error("Could not connect to MongoDB..."));
 
 app.use(express.json());
 
@@ -63,5 +69,6 @@ app.use("/api/groups", groups);
 // createadmin();
 
 app.listen(PORT, () => {
+  connect();
   console.log(`Server is running on port ${PORT}`);
 });
